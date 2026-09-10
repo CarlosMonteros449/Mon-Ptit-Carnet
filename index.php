@@ -17,29 +17,55 @@ try {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <!-- La balise viewport est indispensable pour un affichage propre sur smartphone -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Carnet de Pêche</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts : Poppins (Typographie) & Material Symbols Rounded (Icônes) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=phishing" />
+    
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Mon Carnet de Pêche</h1>
+
+    <header class="custom-header text-white text-center py-4 shadow-sm mb-4">
+        <h1 class="h4 mb-0 fw-semibold">Mon Carnet</h1>
     </header>
 
-    <main>
-        <div class="test-connexion">
-            <p><strong>Statut du serveur :</strong> <?php echo $status_db; ?></p>
-        </div>
+    <main class="container">
+        <h2 class="h5 fw-bold text-dark mb-3">Dernières prises</h2>
         
-        <h2>Mes dernières prises</h2>
-        <div class="liste-prises">
-            <p>Aucune prise enregistrée pour le moment. Il va falloir aller au bord de l'eau !</p>
+        <!-- Remplacement du texte simple par une "carte" Bootstrap moderne -->
+        <div class="card border-0 shadow-sm rounded-4 text-center p-5 mt-4">
+            <span class="material-symbols-rounded text-muted mb-3" style="font-size: 48px;">phishing</span>
+            <p class="text-muted mb-0">Aucune prise enregistrée pour le moment.<br>Préparez votre matériel !</p>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> - Projet Carnet de Pêche</p>
-    </footer>
+    <nav class="navbar fixed-bottom bg-white custom-navbar border-0">
+        <div class="container-fluid d-flex justify-content-around align-items-end px-2">
+            
+            <a href="index.php" class="nav-item active d-flex flex-column align-items-center">
+                <span class="material-symbols-rounded">home</span>
+                <span class="menu-text">Accueil</span>
+            </a>
+            
+            <a href="nouvelle_session.php" class="btn-add-catch">
+                <span class="material-symbols-rounded" style="font-size: 45px;">phishing</span>
+            </a>
+
+            <a href="profil.php" class="nav-item d-flex flex-column align-items-center">
+                <span class="material-symbols-rounded">person</span>
+                <span class="menu-text">Profil</span>
+            </a>
+            
+        </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
