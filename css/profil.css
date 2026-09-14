@@ -1,0 +1,43 @@
+/* Styles spécifiques au profil */
+        .profile-banner {
+            width: 100%;
+            max-width: 500px; 
+            margin: 0 auto; 
+            aspect-ratio: 21 / 9; 
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background-size: cover;
+            background-position: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .profile-avatar-wrapper {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .profile-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 5px solid #f4f7f6;
+            background-color: white;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-avatar .material-symbols-rounded {
+            font-size: 55px;
+            color: #94a3b8;
+        }
+
+        .profile-info {
+            margin-top: 65px;
+        }
