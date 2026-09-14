@@ -1,8 +1,12 @@
 <?php
-$host = 'localhost';
-$dbname = 'MLR1'; 
-$user = 'root'; 
-$pass = '';
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: connexion.php');
+    exit();
+}
+
+require_once './bdd/env.php';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
@@ -55,7 +59,7 @@ try {
             </a>
             
             <a href="nouvelle_session.php" class="btn-add-catch">
-                <span class="material-symbols-rounded" style="font-size: 45px;">phishing</span>
+                <span class="material-symbols-rounded" style="font-size: 36px;">phishing</span>
             </a>
 
             <a href="profil.php" class="nav-item d-flex flex-column align-items-center">

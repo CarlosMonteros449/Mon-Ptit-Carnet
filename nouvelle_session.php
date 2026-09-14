@@ -1,8 +1,12 @@
 <?php
-$host = 'localhost';
-$dbname = 'MLR1'; 
-$user = 'root'; 
-$pass = '';
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: connexion.php');
+    exit();
+}
+
+require_once './bdd/env.php';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
@@ -11,7 +15,7 @@ try {
     die("Erreur de connexion : " . $e->getMessage());
 }
 
-// On pré-remplit la date et l'heure avec l'instant présent
+
 $date_actuelle = date('Y-m-d\TH:i');
 ?>
 
@@ -29,12 +33,10 @@ $date_actuelle = date('Y-m-d\TH:i');
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
     
-    <!-- Ton fichier CSS externe -->
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 
-    <!-- En-tête avec bouton retour -->
     <header class="custom-header text-white text-center py-4 shadow-sm mb-4 position-relative">
         <a href="index.php" class="text-white position-absolute start-0 translate-middle-y ms-3 text-decoration-none" style="top: 50%;">
             <span class="material-symbols-rounded">arrow_back_ios_new</span>
@@ -42,7 +44,6 @@ $date_actuelle = date('Y-m-d\TH:i');
         <h1 class="h4 mb-0 fw-semibold">Nouvelle Session</h1>
     </header>
 
-    <!-- Contenu principal : Formulaire -->
     <main class="container">
         <div class="card border-0 shadow-sm rounded-4 p-4 mb-5">
             <form action="" method="POST">
@@ -80,7 +81,6 @@ $date_actuelle = date('Y-m-d\TH:i');
         </div>
     </main>
 
-    <!-- Navigation fixée (identique à l'index avec le bug de l'icône corrigé) -->
     <nav class="navbar fixed-bottom bg-white custom-navbar border-0">
         <div class="container-fluid d-flex justify-content-around align-items-end px-2">
             
@@ -89,7 +89,6 @@ $date_actuelle = date('Y-m-d\TH:i');
                 <span class="menu-text">Accueil</span>
             </a>
             
-            <!-- Correction du bouton : retrait de text-muted et mb-3, taille ajustée -->
             <a href="nouvelle_session.php" class="btn-add-catch active">
                 <span class="material-symbols-rounded" style="font-size: 36px;">phishing</span>
             </a>
