@@ -1,19 +1,10 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id'])) {
-    header('Location: connexion.php');
+// Si l'utilisateur est déjà connecté, on l'envoie directement sur son tableau de bord
+if (isset($_SESSION['user_id'])) {
+    header('Location: accueil.php');
     exit();
-}
-
-require_once './bdd/env.php';
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $status_db = "Connexion à la base MLR1 réussie";
-} catch (PDOException $e) {
-    $status_db = "Erreur de connexion : " . $e->getMessage();
 }
 ?>
 
@@ -22,54 +13,35 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Carnet de Pêche</title>
+    <title>Mon P'tit Carnet - Accueil</title>
     
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Google Fonts : Poppins (Typographie) & Material Symbols Rounded (Icônes) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=phishing" />
-    
     <link href="css/style.css" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex flex-column justify-content-center" style="padding-bottom: 0; min-height: 100vh; background-color: #f4f7f6;">
 
-    <header class="custom-header text-white text-center py-4 shadow-sm mb-4">
-        <h1 class="h4 mb-0 fw-semibold">Mon Carnet</h1>
-    </header>
+    <main class="container text-center px-4">
+        <!-- Logo et Titre -->
+        <div class="mb-5">
+            <div class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-circle shadow-sm mb-3" style="width: 100px; height: 100px;">
+                <span class="material-symbols-rounded" style="font-size: 50px;">phishing</span>
+            </div>
+            <h1 class="h2 fw-bold text-dark mb-2">Mon Carnet de Pêche</h1>
+            <p class="text-secondary">Votre carnet numérique pour enregistrer et analyser toutes vos sessions au bord de l'eau.</p>
+        </div>
 
-    <main class="container">
-        <h2 class="h5 fw-bold text-dark mb-3">Dernières prises</h2>
-        
-        <!-- Remplacement du texte simple par une "carte" Bootstrap moderne -->
-        <div class="card border-0 shadow-sm rounded-4 text-center p-5 mt-4">
-            <span class="material-symbols-rounded text-muted mb-3" style="font-size: 48px;">phishing</span>
-            <p class="text-muted mb-0">Aucune prise enregistrée pour le moment.<br>Préparez votre matériel !</p>
+        <!-- Boutons d'action -->
+        <div class="d-grid gap-3 mx-auto" style="max-width: 350px;">
+            <a href="connexion.php" class="btn btn-primary btn-lg rounded-pill fw-semibold shadow-sm custom-btn-submit">
+                Se connecter
+            </a>
+            <a href="inscription.php" class="btn btn-outline-primary btn-lg rounded-pill fw-semibold shadow-sm" style="border-width: 2px;">
+                Créer un profil
+            </a>
         </div>
     </main>
 
-    <nav class="navbar fixed-bottom bg-white custom-navbar border-0">
-        <div class="container-fluid d-flex justify-content-around align-items-end px-2">
-            
-            <a href="index.php" class="nav-item active d-flex flex-column align-items-center">
-                <span class="material-symbols-rounded">home</span>
-                <span class="menu-text">Accueil</span>
-            </a>
-            
-            <a href="nouvelle_session.php" class="btn-add-catch">
-                <span class="material-symbols-rounded" style="font-size: 36px;">phishing</span>
-            </a>
-
-            <a href="profil.php" class="nav-item d-flex flex-column align-items-center">
-                <span class="material-symbols-rounded">person</span>
-                <span class="menu-text">Profil</span>
-            </a>
-            
-        </div>
-    </nav>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

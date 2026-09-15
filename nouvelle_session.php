@@ -48,7 +48,6 @@ $date_actuelle = date('Y-m-d\TH:i');
         <div class="card border-0 shadow-sm rounded-4 p-4 mb-5">
             <form action="" method="POST">
                 
-                <!-- Date et Heure -->
                 <div class="mb-4">
                     <label for="date_debut" class="form-label fw-medium text-secondary">
                         <span class="material-symbols-rounded align-middle fs-5 me-1">calendar_month</span> Date et heure
@@ -56,7 +55,6 @@ $date_actuelle = date('Y-m-d\TH:i');
                     <input type="datetime-local" class="form-control form-control-lg bg-light border-0" id="date_debut" name="date_debut" value="<?php echo $date_actuelle; ?>" required>
                 </div>
 
-                <!-- Type de Session -->
                 <div class="mb-4">
                     <label for="type_session" class="form-label fw-medium text-secondary">
                         <span class="material-symbols-rounded align-middle fs-5 me-1">water</span> Milieu
@@ -70,7 +68,6 @@ $date_actuelle = date('Y-m-d\TH:i');
                     </select>
                 </div>
 
-                <!-- Bouton de validation -->
                 <div class="d-grid mt-5">
                     <button type="submit" class="btn btn-primary btn-lg rounded-pill fw-semibold shadow-sm custom-btn-submit">
                         Démarrer la session
@@ -84,7 +81,7 @@ $date_actuelle = date('Y-m-d\TH:i');
     <nav class="navbar fixed-bottom bg-white custom-navbar border-0">
         <div class="container-fluid d-flex justify-content-around align-items-end px-2">
             
-            <a href="index.php" class="nav-item d-flex flex-column align-items-center">
+            <a href="accueil.php" class="nav-item d-flex flex-column align-items-center">
                 <span class="material-symbols-rounded">home</span>
                 <span class="menu-text">Accueil</span>
             </a>
