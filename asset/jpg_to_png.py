@@ -1,7 +1,7 @@
 import os
 from PIL import Image, ImageDraw
 
-dossier_entree = "C:/xampp/htdocs/Carnet-de-peche/Mon-Ptit-Carnet/asset/espece/t"
+dossier_entree = "C:/Users/achuq/Pictures/Asset Carnet/New"
 dossier_sortie = "C:/xampp/htdocs/Carnet-de-peche/Mon-Ptit-Carnet/asset/espece_png"
 
 # Tolérance pour la compression JPG (30 à 50 est idéal pour attraper le blanc imparfait)

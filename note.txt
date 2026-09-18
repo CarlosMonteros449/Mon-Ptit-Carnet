@@ -1,4 +1,2 @@
 codex :
-    pouvoir cliquer sur les carte pour avoir plus d'info
-    Voir pour le chargement des images car pour 20 y'a deja du delai
     faire le systeme de tris des poissons
